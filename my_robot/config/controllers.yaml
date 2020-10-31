@@ -1,0 +1,24 @@
+my_robot:
+  # Publish all joint states -----------------------------------
+  # Creates the /joint_states topic necessary in ROS
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50
+
+  # Effort Controllers ---------------------------------------
+  left_arm_joint_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: left_arm_hinge
+    pid: {p: 50.0, i: 0.0, d: 0.0}
+  right_arm_joint_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: right_arm_hinge
+    pid: {p: 50.0, i: 0.0, d: 0.0}
+  left_arm_shovel_lid_joint_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: left_arm_shovel_lid_joint
+    pid: {p: 1.0, i: 0.0, d: 0.0}
+  right_arm_shovel_lid_joint_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: right_arm_shovel_lid_joint
+    pid: {p: 1.0, i: 0.0, d: 0.0}
