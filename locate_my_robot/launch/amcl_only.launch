@@ -1,0 +1,58 @@
+<launch>
+    
+    <!-- args -->
+    <!--<arg name = "map_file" default = "open_classroom_map.yaml"/>-->
+    <arg name = "map_file" default = "slam_map.yaml"/>
+    <arg name="scan_topic" default="/my_robot/laser/scan"/>
+    <arg name="yaw" default="1.5707"/>
+
+    <!-- run the map_server, load in the map config file -->
+    <node name = "map_server" pkg = "map_server" type = "map_server" args = "$(find locate_my_robot)/maps/$(arg map_file)"/>
+
+
+    <!-- use the amcl node -->
+    <node pkg = "amcl" type = "amcl" name = "amcl">
+        <remap from="scan" to="$(arg scan_topic)"/>
+
+      <!-- essential parameters to put amcl into use -->
+        <param name="odom_frame_id" value="odom"/>
+        <param name="odom_model_type" value="diff-corrected"/>
+        <param name="base_frame_id" value="robot_footprint"/>
+        <param name="global_frame_id" value="map"/>
+
+      <!-- initial pose (optional) -->
+        <param name="initial_pose_x" value="0.0"/>
+        <param name="initial_pose_y" value="0.0"/>
+        <param name="initial_pose_a" value="$(arg yaw)"/>
+
+      <!-- paramters to increase localization performance-->
+          <!-- min and max number of particles -->
+            <param name="min_particles" value="500"/>
+            <param name="max_particles" value="5000"/>
+          <!-- move threshold for next update -->
+            <param name="update_min_d" value="0.1"/>
+            <param name="update_min_a" value="0.1"/>
+          <!-- recover parameters-->
+            <param name="recovery_alpha_slow" value="0.001"/>
+            <param name="recovery_alpha_fast" value="0.1"/>
+
+
+    </node>
+
+    <!-- move base -->
+    <!-- <node name="move_base" pkg="move_base" type="move_base" respawn="false" output="screen">-->
+        <!--<remap from="scan" to="$(arg scan_topic)"/>-->
+
+      <!-- load costmap params -->
+        <!--<rosparam file="$(find locate_my_robot)/config/costmap_common_params.yaml" command="load" ns="global_costmap" />
+        <rosparam file="$(find locate_my_robot)/config/costmap_common_params.yaml" command="load" ns="local_costmap" />
+        <rosparam file="$(find locate_my_robot)/config/local_costmap_params.yaml" command="load" />
+        <rosparam file="$(find locate_my_robot)/config/global_costmap_params.yaml" command="load" />
+        <rosparam file="$(find locate_my_robot)/config/base_local_planner_params.yaml" command="load" />-->
+
+    <!--</node>-->
+
+    <!-- Rviz -->
+    <!--<node pkg="rviz" type="rviz" name="rviz" args="-d $(find locate_my_robot)/launch/locate_my_robot.rviz"/>-->
+
+</launch>
