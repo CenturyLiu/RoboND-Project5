@@ -2,21 +2,41 @@
 Implementation of project 5, Robotics Software Engineering Nanodegree by Udacity
 
 
-## Packages
-    ├── map                          # map files
-        │   ├── ...
-        ├── scripts                   # shell scripts files
-        │   ├── test_slam.sh
-        │   ├── test_navigation.sh
-        ├──rvizConfig                      # rviz configuration files
-        │   ├── ...
-        ├──pick_objects                    # pick_objects C++ node
-        │   ├── src/pick_objects.cpp
-        │   ├── ...
-        ├──add_markers                     # add_marker C++ node
-        │   ├── src/add_markers.cpp
-        │   ├── ...
-        └──
+## File structure
+
+    ├──add_markers                    # add_markers C++ node
+    │   ├── src/add_markers.cpp
+    │   ├── rviz/nav_with_marker.rviz  # view_navigation.rviz + marker display
+    |   ├── launch/add_markers.launch  # launch the add_markers node and display in rviz
+    ├──locate_my_robot                 # package for localizing my_robot
+    │   ├── launch/amcl_only.launch    # launch file for using amcl for my_robot with slam map
+    │   ├── map
+        │   ├──slam_map.pgm            # slam map pgm
+        │   ├──slam_map.yaml           # slam map yaml. The map is created by using slam_gmapping, coordinates of the map are in line with gazebo
+        │   ├──open_classroom_map.zip  # high resolution map created by using pgm_map_creator. Coordinate rotated pi/2 with respect to gazebo
+    │   ├── scripts
+        │   ├──my_robot_teleop.py      # teleop my_robot
+        │   ├──self_rescue.py          # naive exploration implementation of my_robot, used in slam_auto_naive.sh
+    ├──map_my_environment              # map the environment
+    │   ├── launch/my_robot_mapping.launch # call slam_gmapping, args configured for my_robot
+    ├──my_robot                        # package containing simulation environment and robot description
+    │   ├── launch/final_project_world.launch # launch the world for this project and the my_robot
+    │   ├── worlds/open_classroom.world # world created for my
+    ├──pick_objects                    # pick_objects C++ node
+    │   ├── launch/use_move_base.launch # launch file with args specified for my_robot to use move_base
+    │   ├── src/pick_objects.cpp       # the pick_objects node
+    ├── scripts                     # shell scripts files
+    │   ├── add_marker.sh              # show marker to represent pick up and drop off
+    │   ├── add_marker_my_robot.sh     # same for add_marker; for my_robot, same for all scripts with "_my_robot"
+    │   ├── home_service.sh            # the main script for project
+    │   ├── home_service_my_robot.sh
+    │   ├── pick_objects.sh            # navigate turtlebot to pick up zone and drop off zone
+    │   ├── pick_objects_my_robot.sh   
+    │   ├── slam_auto_naive.sh         # naive implementation of automatic mapping using my_robot
+    │   ├── slam_my_robot.sh           # teleop my_robot to map the environment
+    │   ├── test_navigation.sh         # test navigation configuration of turtlebot    
+    │   ├── test_slam.sh               # test slam configuration of turtlebot
+    └──
 
 ## Path Issue in script files
 
