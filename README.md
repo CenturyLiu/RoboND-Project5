@@ -62,9 +62,13 @@ for my_robot
 ## File structure
 
     ├──add_markers                    # add_markers C++ node
-    │   ├── src/add_markers.cpp
+    │   ├── src
+        │   ├── add_markers.cpp        # add markers for home_service
+        │   ├── add_markers_only.cpp   # add marker at pick-up for 5s, pause 5s, then add marker at goal
     │   ├── rviz/nav_with_marker.rviz  # view_navigation.rviz + marker display
-    |   ├── launch/add_markers.launch  # launch the add_markers node and display in rviz
+    |   ├── launch
+        │   ├── add_markers.launch  # launch the add_markers node and display in rviz
+        │   ├── add_markers_only.launch  # launch the add_markers_only node and display in rviz
     ├──locate_my_robot                 # package for localizing my_robot
     │   ├── launch/amcl_only.launch    # launch file for using amcl for my_robot with slam map
     │   ├── map
