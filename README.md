@@ -3,8 +3,17 @@ Implementation of project 5, Home-service Robot project Robotics Software Engine
 
 ## Introduction
 
-This repository includes two similar implementation of the "Homeservice Robot project". One is using the turtlebot, the other is using a custom-build robot called "(my_robot)[https://github.com/CenturyLiu/RoboND-Project5/blob/main/my_robot/urdf/my_robot.xacro]". Currently these two robots can map the gazebo environment with teleop_control or naive automatic exploration, and can navigate inside the different goals inside the environment. Later the function for my_robot may be updated, equipping it to catch and transfer objects.
+This repository includes two similar implementation of the "Homeservice Robot project". One is using the turtlebot, the other is using a custom-build robot called [my_robot](https://github.com/CenturyLiu/RoboND-Project5/blob/main/my_robot/urdf/my_robot.xacro). Currently these two robots can map the gazebo environment with teleop_control or naive automatic exploration, and can navigate inside the different goals inside the environment. Later the function for my_robot may be updated, equipping it to catch and transfer objects.
 
+![naive automatic exploration](https://github.com/CenturyLiu/RoboND-Project5/blob/main/naive_auto_mapping_demo.gif)
+> naive automatic exploration
+
+![myrobot navigate to pick up zone](https://github.com/CenturyLiu/RoboND-Project5/blob/main/navigate_to_pick_up.gif)
+> myrobot navigate to pick up zone
+
+![myrobot navigate to drop off zone](https://github.com/CenturyLiu/RoboND-Project5/blob/main/navigate_to_goal.gif)
+
+> myrobot navigate to drop off zone
 
 ## Installation
 
