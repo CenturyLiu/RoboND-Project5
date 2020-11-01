@@ -1,5 +1,38 @@
 # RoboND-Project5
-Implementation of project 5, Robotics Software Engineering Nanodegree by Udacity
+Implementation of project 5, Home-service Robot project Robotics Software Engineering Nanodegree by Udacity
+
+## Introduction
+
+This repository includes two similar implementation of the "Homeservice Robot project". One is using the turtlebot, the other is using a custom-build robot called "(my_robot)[https://github.com/CenturyLiu/RoboND-Project5/blob/main/my_robot/urdf/my_robot.xacro]". Currently these two robots can map the gazebo environment with teleop_control or naive automatic exploration, and can navigate inside the different goals inside the environment. Later the function for my_robot may be updated, equipping it to catch and transfer objects.
+
+
+## Installation
+
+This project is developed with Ubuntu 16.04 + ROS-kinetic
+Download this project into your workspace, and download the kinetic version of the following official packages
+
+- [gmapping](http://wiki.ros.org/gmapping)
+- [turtlebot_teleop](http://wiki.ros.org/turtlebot_teleop)
+- [turtlebot_rviz_launchers](http://wiki.ros.org/turtlebot_rviz_launchers)
+- [turtlebot_gazebo](http://wiki.ros.org/turtlebot_gazebo)
+
+Also install xterm with
+
+`sudo apt-get install xterm`
+
+Then please follow the instructions in the next section to modify the path in several shell scipts, otherwise those scipts won't work properly.
+
+## Path Issue in script files
+
+In [test_slam.sh](https://github.com/CenturyLiu/RoboND-Project5/blob/main/scripts/test_slam.sh), a file path is included in line 2; In (test_navigation.sh)[https://github.com/CenturyLiu/RoboND-Project5/blob/main/scripts/test_navigation.sh], (home_service.sh)[https://github.com/CenturyLiu/RoboND-Project5/blob/main/scripts/home_service.sh], (pick_objects.sh)[https://github.com/CenturyLiu/RoboND-Project5/blob/main/scripts/pick_objects.sh],file paths are included in line 2 and line 4.
+Please make sure to change the paths from 
+    
+    "/home/centuryliu/robotic_self_learning_ws/src/my_robot/worlds/open_classroom.world"
+to
+
+    "(path_to_your_workspace)/src/my_robot/worlds/open_classroom.world"
+Otherwise the scripts won't work properly
+
 
 
 ## File structure
@@ -38,13 +71,4 @@ Implementation of project 5, Robotics Software Engineering Nanodegree by Udacity
     │   ├── test_slam.sh               # test slam configuration of turtlebot
     └──
 
-## Path Issue in script files
 
-In [test_slam.sh](https://github.com/CenturyLiu/RoboND-Project5/blob/main/scripts/test_slam.sh), a file path is included in line 2; In (test_navigation.sh)[https://github.com/CenturyLiu/RoboND-Project5/blob/main/scripts/test_navigation.sh], file paths are included in line 2 and line 4.
-Please make sure to change the paths from 
-    
-    "/home/centuryliu/robotic_self_learning_ws/src/my_robot/worlds/classroom.world"
-to
-
-    "(path_to_your_workspace)/src/my_robot/worlds/classroom.world"
-Otherwise the scripts won't work properly
