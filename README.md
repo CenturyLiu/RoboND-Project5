@@ -33,7 +33,7 @@ Then please follow the instructions in the next section to modify the path in se
 
 ## Path Issue in script files
 
-In [test_slam.sh](https://github.com/CenturyLiu/RoboND-Project5/blob/main/scripts/test_slam.sh), a file path is included in line 2; In (test_navigation.sh)[https://github.com/CenturyLiu/RoboND-Project5/blob/main/scripts/test_navigation.sh], (home_service.sh)[https://github.com/CenturyLiu/RoboND-Project5/blob/main/scripts/home_service.sh], (pick_objects.sh)[https://github.com/CenturyLiu/RoboND-Project5/blob/main/scripts/pick_objects.sh],file paths are included in line 2 and line 4.
+In [test_slam.sh](https://github.com/CenturyLiu/RoboND-Project5/blob/main/scripts/test_slam.sh), a file path is included in line 2; In [test_navigation.sh](https://github.com/CenturyLiu/RoboND-Project5/blob/main/scripts/test_navigation.sh), [home_service.sh](https://github.com/CenturyLiu/RoboND-Project5/blob/main/scripts/home_service.sh), [pick_objects.sh](https://github.com/CenturyLiu/RoboND-Project5/blob/main/scripts/pick_objects.sh),file paths are included in line 2 and line 4.
 Please make sure to change the paths from 
     
     "/home/centuryliu/robotic_self_learning_ws/src/my_robot/worlds/open_classroom.world"
@@ -42,7 +42,22 @@ to
     "(path_to_your_workspace)/src/my_robot/worlds/open_classroom.world"
 Otherwise the scripts won't work properly
 
+## Commands
 
+After fixing the path issue, go to the [scripts](https://github.com/CenturyLiu/RoboND-Project5/tree/main/scripts) directory in your workspace, open a terminal in this directory. 
+Give permissions for all the shell scripts to be executable
+
+`chmod +x *`
+
+Then in the same terminal enter
+
+`./home_service.sh`
+
+to see the behavior of turtlebot; or use 
+
+`./home_service_my_robot.sh`
+
+for my_robot
 
 ## File structure
 
