@@ -4,7 +4,7 @@
 
   <!-- World File -->
   <!--<arg name="world_file" default="$(find my_robot)/worlds/classroom_with_white_ball.world"/>-->
-  <arg name="world_file" default="$(find my_robot)/worlds/classroom.world"/>
+  <arg name="world_file" default="$(find my_robot)/worlds/open_classroom.world"/>
 
   <!-- Robot pose -->
 
